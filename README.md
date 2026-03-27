@@ -1,2 +1,2 @@
 # AWS-Jenkins-Sonarqube
-Repository to test a CI/CD pipeline for a Java application using AWS EC2 instances, testing the code with Sonarqube and orchestrated by Jenkins
+Repository to build a production-grade DevSecOps pipeline using Jenkins, Trivy, SonarQube, AWS ECR, and Amazon EKS. The pipeline enforces multiple security gates by scanning source code, running unit tests, performing static analysis, scanning the container image, and deploying only when every stage passes. We follow least-privilege access, use immutable image tags, and validate rollout health before completing the deployment.

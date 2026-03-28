@@ -1,9 +1,23 @@
 pipeline {
     agent { label 'docker-maven-trivy' }
+    environment {
+        SONAR_IP = '172.31.1.48'
+    }
     stages {
         stage('Trivy FS Scan') {
             steps {
                 sh 'trivy fs --exit-code 1 --severity HIGH,CRITICAL .'
+            }
+        }
+        stage('Build & Sonar') {
+            steps {
+                withCredentials([string(credentialsId: 'sonarqube-token', variable: 'SONAR_TOKEN')]) {
+                    sh 'mvn clean verify sonar:sonar \
+                        -Dsonar.projectKey=devsecops-demo \
+                        -Dsonar.host.url="http://${SONAR_IP}:9000" \
+                        -Dsonar.token="${SONAR_TOKEN}" \
+                        -Dsonar.qualitygate.wait=true'
+                }
             }
         }
     }

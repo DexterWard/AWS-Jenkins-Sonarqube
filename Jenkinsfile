@@ -5,6 +5,7 @@ pipeline {
     }
     environment {
         SONAR_IP = '172.31.1.48'
+        ECR_REGISTRY = '764763463632.dkr.ecr.eu-central-1.amazonaws.com'
     }
     stages {
         stage('Trivy FS Scan') {
@@ -21,6 +22,11 @@ pipeline {
                         -Dsonar.token="${SONAR_TOKEN}" \
                         -Dsonar.qualitygate.wait=true'
                 }
+            }
+        }
+        stage('ECR Login') {
+            steps {
+                sh 'aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin $ECR_REGISTRY'
             }
         }
     }

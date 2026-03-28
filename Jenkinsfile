@@ -1,5 +1,8 @@
 pipeline {
     agent { label 'docker-maven-trivy' }
+    tools {
+        maven 'maven3'
+    }
     environment {
         SONAR_IP = '172.31.1.48'
     }

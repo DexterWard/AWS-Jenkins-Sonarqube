@@ -9,6 +9,12 @@ pipeline {
         IMAGE_REPO = "${ECR_REGISTRY}/devsecops-demo"
     }
     stages {
+
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }       
         stage('Trivy FS Scan') {
             steps {
                 sh 'trivy fs --exit-code 1 --severity HIGH,CRITICAL .'

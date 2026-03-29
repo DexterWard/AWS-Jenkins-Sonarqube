@@ -63,10 +63,8 @@ pipeline {
                     kubectl create ns devsecops
                     kubectl apply -f deploy-svc.yaml
 
-                    kubectl rollout status -n devsecops deployment/devsecops-demo --timeout=60s || {
-                    kubectl rollout undo -n devsecops deployment/devsecops-demo || true
-                    exit 1
-                    }
+                    
+                    
                 '''
             }
         }

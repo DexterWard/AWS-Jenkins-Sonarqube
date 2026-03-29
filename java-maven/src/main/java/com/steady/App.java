@@ -33,9 +33,9 @@ public class App {
 
         // 4) Wrong comparison (Bug)
         if (username == "admin") { // Sonar will flag this
-            LOGGER.info(("Welcome, admin!");
+            LOGGER.info("Welcome, admin!");
         } else {
-            LOGGER.info(("Hello, " + username);
+            LOGGER.info("Hello, " + username);
         }
 
         // Simple homepage

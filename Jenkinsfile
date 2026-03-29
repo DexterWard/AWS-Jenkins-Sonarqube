@@ -35,5 +35,11 @@ pipeline {
                 sh 'export DOCKER_BUILDKIT=0 && docker build --platform linux/amd64 -t "$IMAGE_REPO:$BUILD_NUMBER" -t "$IMAGE_REPO:latest" .'
             }
         }
+        stage('Trivy image scan') {
+            steps {
+                sh 'trivy image --exit-code 1 --severity HIGH,CRITICAL
+                "$IMAGE_REPO:$BUILD_NUMBER"'
+            }
+        }
     }
 }

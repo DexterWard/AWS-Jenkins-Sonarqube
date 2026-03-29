@@ -13,7 +13,7 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         // 2) Using System.out instead of logger (Maintainability)
-        System.out.println("Starting CVWJ DevSecOps Demo...");
+     //   System.out.println("Starting CVWJ DevSecOps Demo...");
 
         // 3) Scanner resource leak + wrong string comparison (two findings)
         String username = "guest"; // safe fallback for Docker

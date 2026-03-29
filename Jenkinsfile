@@ -17,7 +17,7 @@ pipeline {
         stage('Build & Sonar') {
             steps {
                 withCredentials([string(credentialsId: 'sonarqube-token', variable: 'SONAR_TOKEN')]) {
-                    sh 'cd java-maven
+                    sh 'cd java-maven \
                          mvn clean package sonar:sonar \
                         -Dsonar.projectKey=devsecops-demo \
                         -Dsonar.host.url="http://${SONAR_IP}:9000" \

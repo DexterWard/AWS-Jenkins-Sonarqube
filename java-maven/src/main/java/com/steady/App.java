@@ -11,7 +11,7 @@ public class App {
     // 1) Hardcoded secret (Security Hotspot)
     private static final String API_KEY = "CVWJ_DEMO_SECRET";
 
-    private static final Logger LOGGER = Logger.getLogger(Example.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(App.class.getName());
 
     public static void main(String[] args) throws Exception {
 
@@ -54,6 +54,4 @@ public class App {
         System.out.println("App running on port " + port);
         server.start();
     }
-
-  
 }

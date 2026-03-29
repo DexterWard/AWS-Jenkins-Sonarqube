@@ -1,6 +1,6 @@
 FROM eclipse-temurin:21  
 WORKDIR /app  
-COPY java-maven/target/devsecops-demo-1.0.0-SNAPSHOT.jar app.jar  
+COPY target/devsecops-demo-1.0.0-SNAPSHOT.jar app.jar  
 RUN jar tf app.jar | grep steady || true
 EXPOSE 8080  
 #ENTRYPOINT ["java", "-jar", "app.jar"]  

@@ -1,4 +1,4 @@
-package com.cloudwithvarjosh;
+package com.steady;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

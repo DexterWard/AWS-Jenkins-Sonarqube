@@ -55,6 +55,7 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 sh '''#!/bin/bash -l
+                    set -x
                     aws eks update-kubeconfig \
                     --region eu-central-1 \
                     --name devsecops-eks \
@@ -65,7 +66,8 @@ pipeline {
 
                     kubectl rollout status -n devsecops deployment/devsecops-demo --timeout=60s || {
                     kubectl rollout undo -n devsecops deployment/devsecops-demo || true
-                    exit 1 }
+                    exit 1 
+                    }
                     
                 '''
             }

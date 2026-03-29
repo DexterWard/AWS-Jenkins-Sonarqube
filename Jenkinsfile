@@ -32,7 +32,7 @@ pipeline {
         }
         stage('Build image') {
             steps {
-                sh 'export DOCKER_BUILDKIT=0 && docker build --platform linux/amd64 -t "$IMAGE_REPO:$BUILD_NUMBER" -t "$IMAGE_REPO:latest" .'
+                sh 'export DOCKER_BUILDKIT=0 && docker build --no-cache --platform linux/amd64 -t "$IMAGE_REPO:$BUILD_NUMBER" -t "$IMAGE_REPO:latest" .'
             }
         }
         stage('Trivy image scan') {
@@ -55,7 +55,6 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 sh '''#!/bin/bash -l
-                    set -x
                     aws eks update-kubeconfig \
                     --region eu-central-1 \
                     --name devsecops-eks \

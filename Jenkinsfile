@@ -41,5 +41,11 @@ pipeline {
                 "$IMAGE_REPO:$BUILD_NUMBER"'
             }
         }
+        stage('Push image to ECR') {
+            steps {
+                sh 'docker push "$IMAGE_REPO:$BUILD_NUMBER"'
+                sh 'docker push "$IMAGE_REPO:latest"'
+            }
+        }
     }
 }

@@ -19,7 +19,7 @@ pipeline {
                 withCredentials([string(credentialsId: 'sonarqube-token', variable: 'SONAR_TOKEN')]) {
                 dir('java-maven') {
                 sh """
-                    mvn clean package sonar:sonar \
+                    mvn clean verify sonar:sonar \
                     -Dsonar.projectKey=devsecops-demo \
                     -Dsonar.host.url="http://${SONAR_IP}:9000" \
                     -Dsonar.token="${SONAR_TOKEN}" \

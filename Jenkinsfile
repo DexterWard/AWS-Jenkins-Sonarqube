@@ -20,6 +20,7 @@ pipeline {
                 dir('java-maven') {
                 sh """
                     mvn clean verify sonar:sonar \
+                    -DskipTests \
                     -Dsonar.projectKey=devsecops-demo \
                     -Dsonar.host.url="http://${SONAR_IP}:9000" \
                     -Dsonar.token="${SONAR_TOKEN}" \

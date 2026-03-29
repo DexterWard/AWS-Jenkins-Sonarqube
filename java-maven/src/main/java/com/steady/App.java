@@ -16,7 +16,7 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         // 2) Using System.out instead of logger (Maintainability)
-        LOGGER.info("Starting CVWJ DevSecOps Demo...");
+        LOGGER.info("Starting DevSecOps Demo...");
 
         // 3) Scanner resource leak + wrong string comparison (two findings)
         String username = "guest"; // safe fallback for Docker
@@ -53,5 +53,10 @@ public class App {
 
         System.out.println("App running on port " + port);
         server.start();
+    }
+
+     // simple helper method for tests
+    public static String brandHtml() {
+        return "<h1>Cloud With Steady</h1><p>Simple DevSecOps Demo App</p>";
     }
 }

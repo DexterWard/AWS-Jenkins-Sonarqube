@@ -1,4 +1,4 @@
-package com.cloudwithvarjosh;
+package com.dexter;
 
 import com.sun.net.httpserver.HttpServer;
 import java.net.InetSocketAddress;
@@ -13,7 +13,7 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         // 2) Using System.out instead of logger (Maintainability)
-        System.out.println("Starting CVWJ DevSecOps Demo...");
+        System.out.println("Starting DevSecOps Demo...");
 
         // 3) Scanner resource leak + wrong string comparison (two findings)
         String username = "guest"; // safe fallback for Docker
@@ -48,7 +48,7 @@ public class App {
             os.close();
         });
 
-        System.out.println("CVWJ app running on port " + port);
+        System.out.println("Steady app running on port " + port);
         server.start();
     }
 
